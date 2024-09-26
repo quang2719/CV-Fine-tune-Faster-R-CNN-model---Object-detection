@@ -40,17 +40,13 @@ def train_data(args):
     
     # Define transformations
     train_transform = Compose([
-        RandomAffine( 
-          # Data augumentation
-          # Chane location
-            degrees=(-5, 5), 
+        RandomAffine(
+            degrees=(-5, 5),
             translate=(0.15, 0.15),
             scale=(0.85, 1.15),
             shear=10
         ),
         ColorJitter(
-          # Data augumentation
-          # Chane color
             brightness=0.125,
             contrast=0.5,
             saturation=0.5,
@@ -93,11 +89,15 @@ def train_data(args):
     
     # Load model
     model = fasterrcnn_mobilenet_v3_large_320_fpn(
-        weights=FasterRCNN_MobileNet_V3_Large_320_FPN_Weights.DEFAULT
+        weights=FasterRCNN_MobileNet_V3_Large_320_FPN_Weights.DEFAULT,
+        trainable_backbone_layers=0
     ).to(device)
     in_channels = model.roi_heads.box_predictor.cls_score.in_features
     model.roi_heads.box_predictor = FastRCNNPredictor(in_channels=in_channels,
                                                       num_classes=len(train_dataset.categories))
+
+    model = model.to(device)
+    
     optimizer = AdamW(model.parameters(), lr=args.learning_rate)
     scaler = GradScaler()
     writer = SummaryWriter(log_dir=args.log_folder)
@@ -152,13 +152,13 @@ def train_data(args):
         writer.add_scalar("Val/mAP_75", result["map_75"], epoch)
 
         checkpoint = {
-            "model_state_dict": model.state_dict(), #store parameter
+            "model_state_dict": model.state_dict(),
             "map": result["map"],
             "epoch": epoch + 1,
             "optimizer_state_dict": optimizer.state_dict()
         }
-        torch.save(checkpoint, os.path.join(args.checkpoint_folder, "last.pt")) # save parameter
-        if result["map"] > best_map: #store version with best mAP 
+        torch.save(checkpoint, os.path.join(args.checkpoint_folder, "last.pt"))
+        if result["map"] > best_map:
             best_map = result["map"]
             torch.save(checkpoint, os.path.join(args.checkpoint_folder, "best.pt"))
 
