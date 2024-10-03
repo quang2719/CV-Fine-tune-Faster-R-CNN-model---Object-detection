@@ -1,1 +1,2 @@
 # Computer-Vision
+This project fine-tunes the Faster R-CNN model for object detection using the Pascal VOC 2012 dataset. Two versions are implemented: one for training on Google Colab and the other on Kaggle. The model is built using PyTorch and evaluated using mAP. We experiment with two different backbones: MobileNet v3 and ResNet50. The primary objective is to assess the performance and training time when fine-tuning the model on various platforms and backbones.
