@@ -1,18 +1,22 @@
-# Fine-tuning Faster R-CNN for Object Detection on Pascal VOC 2012
+# ⚙️ Fine-tuning Faster R-CNN for Object Detection on Pascal VOC 2012 
+
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=white)](https://pytorch.org/) 
+[![Google Colab](https://img.shields.io/badge/Google%20Colab-F9AB00?style=for-the-badge&logo=Google%20Colab&logoColor=white)](https://colab.research.google.com/) 
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)](https://www.kaggle.com/)
 
 This project demonstrates how to fine-tune a Faster R-CNN model, pre-trained on the COCO dataset, for object detection on the Pascal VOC 2012 dataset. The model is adjusted to handle the 20 classes present in VOC, down from the 90 classes in COCO.
 
-## Project Overview
+## 📋 Project Overview
 
-This project aims to provide a practical example of fine-tuning a pre-trained Faster R-CNN model for a specific object detection task.  By leveraging a pre-trained model and adapting it to a new dataset, we can achieve effective object detection with limited computational resources.
+This project aims to provide a practical example of fine-tuning a pre-trained Faster R-CNN model for a specific object detection task. By leveraging a pre-trained model and adapting it to a new dataset, we can achieve effective object detection with limited computational resources.
 
-**Key Features:**
-### Key Components:
-- **Faster R-CNN Backbone**: Initially uses MobileNet v3 and ResNet50 to experiment with lightweight and larger architectures.
-- **Pascal VOC 2012 Dataset**: Custom loader for VOC dataset with 20 object categories.
-- **Training & Evaluation**: Custom training script to evaluate the model and store the checkpoint with the highest mAP.
 
-### Block Diagram:
+## 🧩 Key Components:
+- **🏋️‍♂️ Faster R-CNN Backbone**: Initially uses MobileNet v3 and ResNet50 to experiment with lightweight and larger architectures.
+- **📦 Pascal VOC 2012 Dataset**: Custom loader for VOC dataset with 20 object categories.
+- **📊 Training & Evaluation**: Custom training script to evaluate the model and store the checkpoint with the highest mAP.
+
+## 🛠️ Block Diagram:
 ```plaintext
    ┌──────────────────────┐
    │      Pascal VOC       │
@@ -36,32 +40,27 @@ This project aims to provide a practical example of fine-tuning a pre-trained Fa
    │  Best mAP)             │
    └───────────────────────┘
 ```
-- **Fine-tuning:**  Adapts a pre-trained Faster R-CNN model for Pascal VOC 2012 dataset.
-- **Multiple Backbones:** Explores performance with MobileNet v3 and ResNet50 backbones.
-- **Resource-Aware Training:**  Demonstrates training on both Google Colab (limited resources) and Kaggle (enhanced resources) environments. 
-- **Evaluation:** Provides scripts for testing the model on new images and reports mAP scores.
+- **🔧 Fine-tuning:** Adapts a pre-trained Faster R-CNN model for the Pascal VOC 2012 dataset.
+- **🏗️ Multiple Backbones:** Explores performance with MobileNet v3 and ResNet50 backbones.
+- **⚡ Resource-Aware Training:** Demonstrates training on both Google Colab (limited resources) and Kaggle (enhanced resources) environments.
+- **📈 Evaluation:** Provides scripts for testing the model on new images and reports mAP scores.
 
-## Project Architecture
+## 🏛️ Project Architecture
 
 The project consists of two main implementations:
 
-**1. Google Colab Implementation:**
+**1. 🖥️ Google Colab Implementation:**
 
-- **`FRCNN_main.ipynb`:** Main Jupyter Notebook to execute the training and testing process.
-- **`test_new_data.py`:** Script to test the trained model on new images.
-- **`training.py`:** Contains the model definition, training loop, and saves the best model checkpoint based on mAP.
-- **`voc_dataset_format.py`:**  Handles loading and preprocessing the Pascal VOC dataset. 
+- **📄 `FRCNN_main.ipynb`:** Main Jupyter Notebook to execute the training and testing process.
+- **🧪 `test_new_data.py`:** Script to test the trained model on new images.
+- **🛠️ `training.py`:** Contains the model definition, training loop, and saves the best model checkpoint based on mAP.
+- **📦 `voc_dataset_format.py`:** Handles loading and preprocessing the Pascal VOC dataset.
 
-**2. Kaggle Implementation:**
+**2. 📊 Kaggle Implementation:**
 
-- **`frcnn.ipynb`:**  Single Jupyter Notebook integrating training and evaluation using MobileNet v3 and ResNet50 backbones.
+- **📄 `frcnn.ipynb`:** Single Jupyter Notebook integrating training and evaluation using MobileNet v3 and ResNet50 backbones.
 
 ## Getting Started
-
-### Prerequisites:
-
-- Python 3.7+
-- Required libraries: TensorFlow, Keras, OpenCV, etc. (refer to requirements.txt) 
 
 ### Running the Code:
 
@@ -102,12 +101,18 @@ For **Kaggle**, create your own dataset, upload your images, and paste the image
 See the demo video in the **Colab** folder and the prediction output of my model in the **Kaggle** folder.
 
 
-## Future Work
+## 🚀 Future Work
 
-- Experiment with different backbone architectures (e.g., EfficientNet, Inception).
-- Optimize training parameters (learning rate, batch size) for improved performance.
-- Implement data augmentation techniques to enhance model robustness. 
-- Explore transfer learning from other object detection datasets.
+- **🔍 Experiment with different backbone architectures** (e.g., EfficientNet, Inception).
+- **⚙️ Optimize training parameters** (learning rate, batch size) for improved performance.
+- **🎨 Implement data augmentation techniques** to enhance model robustness.
+- **📚 Explore transfer learning** from other object detection datasets.
+
+---
+
+## 🙏 Thanks for Reading!
+
+Thank you for taking the time to explore this project! Your interest and feedback are greatly appreciated. If you have any questions or suggestions, feel free to reach out!
 
 ## Contact
 
